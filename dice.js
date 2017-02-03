@@ -1,7 +1,8 @@
 "use strict";
 
 function displayRules(){
-	alert("RULES OF THE GAME:\nPlayers have to predict whether the dice will roll a high or low number, and awarded 1 point if they guess correctly. For example:\n\nAn 8 sided dice will have\nlow numbers: 1,2,3,4\nhigh numbers: 5,6,7,8\n\nThe game ends when someone reaches 3 points.");
+	alert("RULES OF THE GAME:\nPlayers have to predict whether the dice will roll a high or low number, and awarded 1 point if they guess correctly. For example:\n\nAn 8 sided dice will "
+	+"have\nlow numbers: 1,2,3,4\nhigh numbers: 5,6,7,8\n\nThe game ends when someone reaches 3 points.");
 	chooseOptions();
 }
 	
@@ -18,7 +19,6 @@ function chooseDice(){
 
 function choosePlayers(){
 	var numberOfAi =prompt("How many AI do you want to play against: ");
-	
 	for(var i=0; i<numberOfAi; i++){
 		aiPoints[i]=0;
 	}
@@ -32,7 +32,6 @@ function startGame(diceChoice,numberOfAi){
 	do{
 		var userChoice=promptUser();
 		var aiChoice=promptAi(numberOfAi)
-
 		randomizeNumber(diceChoice,userChoice,aiChoice);
 		for(i=0; i<aiChoice.length;i++){
 			if(userPoints<aiPoints[i] && aiPoints[i]==3){
@@ -72,7 +71,6 @@ function promptAi(numberOfAi){
 		aiChoice[i]= (Math.random()*(2 - 1) + 1).toFixed(0);
 		
 	}
-	
 	for(j=0; j<numberOfAi; j++)
 	{
 		if(aiChoice[j]==1){
@@ -85,7 +83,7 @@ function promptAi(numberOfAi){
 	return aiChoice;
 }
 
-
+//randomizes the dice roll
 function randomizeNumber(diceChoice,userChoice, aiChoice){
 	var sides, number,i;
 	if (diceChoice==1){
@@ -116,6 +114,7 @@ function randomizeNumber(diceChoice,userChoice, aiChoice){
 	checkResults(number,sides,userChoice,aiChoice);
 }
 
+//decides if the dice rolled was a high/low number
 function checkResults(roll,sides,userChoice,aiChoice){
 	console.log("Dice rolled: "+roll+"\n\n");
 	if(roll>(sides/2)){
@@ -138,12 +137,12 @@ function playerResult(roll,userChoice){
 	{
 		console.log("you lose! Score: "+userPoints);
 	}
-}
-
-function aiResult(roll,aiChoice){
 	var i;
 	for(i=0; i<aiChoice.length;i++)
 	{	
+}
+
+function aiResult(roll,aiChoice){
 		if(roll==aiChoice[i])
 		{
 			aiPoints[i]=aiPoints[i]+1;

@@ -117,17 +117,13 @@ function randomizeNumber(diceChoice,userChoice, aiChoice){
 }
 
 function checkResults(roll,sides,userChoice,aiChoice){
-	
 	console.log("Dice rolled: "+roll+"\n\n");
-	
 	if(roll>(sides/2)){
 		roll=2;
 	}
-	
 	else if(roll<=(sides/2)){
 		roll=1;
 	}
-	
 	playerResult(roll,userChoice);
 	aiResult(roll,aiChoice);
 }
@@ -162,5 +158,4 @@ function aiResult(roll,aiChoice){
 
 var userPoints=0;
 var aiPoints = new Array;
-
 displayRules();

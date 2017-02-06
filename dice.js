@@ -4,7 +4,7 @@ function displayRules(){
 	alert("RULES OF THE GAME:\nPlayers have to predict whether the dice will roll a high or low number, and awarded 1 point if they guess correctly. For example:\n\nAn 8 sided dice will have\nlow numbers: 1,2,3,4\nhigh numbers: 5,6,7,8\n\nThe game ends when someone reaches 3 points.");
 	chooseOptions();
 }
-	
+
 function chooseOptions(){
 	var diceChoice=chooseDice();
 	var numberOfAi=choosePlayers();
@@ -12,12 +12,42 @@ function chooseOptions(){
 }
 
 function chooseDice(){
-	var diceChoice=prompt("Which type of dice would you like to play with:\n\nType 1 for: 4 sided\nType 2 for: 6 sided\nType 3 for: 8 sided\nType 4 for: 10 sided\nType 5 for: 12 sided\nType 6 for: 20 sided");
+	var j=1;
+	do{
+		var diceChoice=prompt("Which type of dice would you like to play with:\n\nType 1 for: 4 sided\nType 2 for: 6 sided\nType 3 for: 8 sided\nType 4 for: 10 sided\nType 5 for: 12 sided\nType 6 for: 20 sided");
+		if(diceChoice == ""){
+			console.log("You didn't type in anything! Try again.");
+		}
+		else if(isNaN(diceChoice)){
+			console.log("Not a number");
+		}
+		else if(diceChoice>6){
+			console.log("That's not an option!");
+		}
+		else if(diceChoice = Number(diceChoice))
+			break;
+	}while (j==1);
 	return diceChoice;
 }
 
 function choosePlayers(){
-	var numberOfAi =prompt("How many AI do you want to play against: ");
+	var j=1;
+	do{
+		var numberOfAi =prompt("How many AI do you want to play against: ");
+		if(numberOfAi == ""){
+			console.log("You didn't type in anything! Try again.");
+		}
+		else if(numberOfAi>10){
+			console.log("That's not an option!");
+		}
+		else if(isNaN(numberOfAi)){
+			console.log("not a number");
+		}
+		else if(numberOfAi = Number(numberOfAi))
+			break;
+	}while (j==1);
+	
+	
 	for(var i=0; i<numberOfAi; i++){
 		aiPoints[i]=0;
 	}
@@ -54,7 +84,22 @@ function startGame(diceChoice,numberOfAi){
 }
 
 function promptUser(){
-	var userChoice=prompt("Place your bet!\n\nEnter 1: Low   2: High\n");
+	var j=1;
+	do{
+		var userChoice=prompt("Place your bet!\n\nEnter 1: Low   2: High\n");
+		if(userChoice == ""){
+			console.log("You didn't type in anything! Try again.");
+		}
+		else if(isNaN(userChoice)){
+			console.log("not a number");
+		}
+		else if(userChoice>2){
+			console.log("That's not an option!");
+		}
+		else if(userChoice = Number(userChoice))
+			break;
+	}while (j==1);
+	
 	if(userChoice==1){
 		console.log("\nYou chose: Low");
 	}
